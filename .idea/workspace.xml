@@ -5,7 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3826ab77-1b9a-40ae-8f9a-d081454db116" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/ui" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/ui/node_modules/.cache/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ui/node_modules/.cache/.eslintcache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/ui/src/components/HomePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ui/src/components/HomePage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/ui/src/components/LoginPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ui/src/components/LoginPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/ui/src/components/SignUpPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ui/src/components/SignUpPage.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,6 +72,8 @@
       <option name="presentableId" value="Default" />
       <updated>1629258135131</updated>
       <workItem from="1629258139293" duration="159000" />
+      <workItem from="1629261257754" duration="60000" />
+      <workItem from="1629307834171" duration="5227000" />
     </task>
     <servers />
   </component>

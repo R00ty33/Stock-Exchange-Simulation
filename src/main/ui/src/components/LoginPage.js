@@ -3,7 +3,7 @@ import Axios from 'axios'; // API
 import { Button, Flex, Heading, Input, useColorModeValue, Text, Alert, AlertIcon, AlertTitle, AlertDescription, CloseButton } from '@chakra-ui/react';
 import { useHistory } from 'react-router-dom';
 import { DarkMode } from './DarkMode';
-import md5 from 'md5';
+import tokenProvider from './TokenProvider';
 
 function LoginPage() {
     const formBackground = useColorModeValue("gray.100", "gray.700") /** Light Mode = gray.100,     Dark Mode = gray.700 */  
@@ -25,16 +25,22 @@ function LoginPage() {
           }
         Axios.post('http://localhost:8080/api/login', params, config).then((response) => {
             console.log(response.status, response, response.data);
-            /*
-            if (response.data == 'Authentication Success') {
-                history.push(`/Home`);
-            }
-            else {
+            if (response.data.message === 'Unauthorized') {
                 setIncorrectPasswordAlert(true);
             }
-            */
+            else {
+                let access_token = response.data.access_token;
+                let refresh_token = response.data.refresh_token
+                tokenProvider.setToken(access_token, refresh_token);
+                console.log(tokenProvider.getAccessToken());
+                console.log(tokenProvider.getRefreshToken());
+                history.push(`/Home`);
+            }
         }).catch((err) => {
             console.log("Promise Rejected", err.message, err.response.data);
+            if (err.response.data.message === 'Unauthorized') {
+                setIncorrectPasswordAlert(true);
+            }
         })
     }
 
@@ -53,11 +59,11 @@ function LoginPage() {
 
     const IncorrectPasswordAlert = () => {
           return (
-            <Alert status="error">
+            <Alert status="error" mb={6}>
               <AlertIcon />
-              <AlertTitle mr={2}></AlertTitle>
-              <AlertDescription>Incorrect Password</AlertDescription>
-              <CloseButton position="absolute" onClick={() => setIncorrectPasswordAlert(false)} right="6px" top="8px"/>
+              <AlertTitle mr={-1}></AlertTitle>
+              <AlertDescription maxWidth="sm">Wrong Email/Password</AlertDescription>
+              <CloseButton position="absolute" onClick={() => setIncorrectPasswordAlert(false)} right="-2px" top="8px"/>
             </Alert>
           )
     }
@@ -77,8 +83,8 @@ function LoginPage() {
                 <DarkMode />
                 </Heading>
                 <Input type="text" onChange={handleEmail} placeholder="email" variant="filled" mb={3}></Input>
-                <HandleIncorrectPasswordAlert />
                 <Input type="password" onChange={handlePassword} placeholder="*********" variant="filled" mb={6}></Input>
+                <HandleIncorrectPasswordAlert/>
                 <Button onClick={LoginAuthentication} mb={3} colorScheme="teal">Log in</Button>
                 <Text>Dont have an account? Sign up!</Text>
                 <Button onClick={() => history.push(`/Register`)} mb={6} colorScheme="red">Sign up</Button>

@@ -3,7 +3,6 @@ import Axios from 'axios'; // API
 import { Button, Flex, Heading, Input, useColorModeValue, Text, Alert, AlertIcon, AlertTitle, AlertDescription, CloseButton } from '@chakra-ui/react';
 import { useHistory } from 'react-router-dom';
 import { DarkMode } from './DarkMode';
-import md5 from 'md5';
 
 function SignUpPage() {
     const formBackground = useColorModeValue("gray.100", "gray.700") /** Light Mode = gray.100,     Dark Mode = gray.700 */
@@ -62,10 +61,10 @@ function SignUpPage() {
 
     const EmailTakenAlert = () => {
           return (
-            <Alert status="error">
+            <Alert status="error" mb={3}>
               <AlertIcon />
               <AlertTitle mr={2}></AlertTitle>
-              <AlertDescription>Email is taken</AlertDescription>
+              <AlertDescription>Email is Taken</AlertDescription>
               <CloseButton position="absolute" onClick={() => setEmailTakenAlert(false)} right="6px" top="8px"/>
             </Alert>
           )
