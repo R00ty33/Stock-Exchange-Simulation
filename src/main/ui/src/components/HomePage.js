@@ -2,15 +2,14 @@ import React, { useState } from 'react';
 import { Flex, Heading, useColorMode, useColorModeValue, } from '@chakra-ui/react';
 import { useHistory } from 'react-router-dom';
 import { DarkMode } from './DarkMode';
+import tokenProvider from './TokenProvider';
 
 function Home() {
     const { toggleColorMode } = useColorMode(); /** Changes ColorMode */
     const formBackground = useColorModeValue("gray.100", "gray.700") /** Light Mode = gray.100,     Dark Mode = gray.700 */
     const [modeName, setModeName] = useState('Dark Mode'); /** Determines Light or Dark Mode Name */
     
-    const history = useHistory();
-
-    
+    const history = useHistory();  
 
     return (
         <Flex height="100vh" alignItems="center" justifyContent="center">

@@ -30,10 +30,9 @@ function LoginPage() {
             }
             else {
                 let access_token = response.data.access_token;
-                let refresh_token = response.data.refresh_token
-                tokenProvider.setToken(access_token, refresh_token);
-                console.log(tokenProvider.getAccessToken());
-                console.log(tokenProvider.getRefreshToken());
+                let refresh_token = response.data.refresh_token;
+                tokenProvider.setTokens(access_token, refresh_token);
+                console.log(tokenProvider.getToken());
                 history.push(`/Home`);
             }
         }).catch((err) => {

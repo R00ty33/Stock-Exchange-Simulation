@@ -7,7 +7,7 @@ export const DarkMode = () => {
     const [modeName, setModeName] = useState('Dark Mode'); /** Determines Light or Dark Mode Name */
 
     const handleModeName = () => { /** handles toggleColorMode & modeName */ 
-        if (formBackground == "gray.100") {
+        if (formBackground === "gray.100") {
             setModeName("Light Mode");
         } else {
             setModeName("Dark Mode");
