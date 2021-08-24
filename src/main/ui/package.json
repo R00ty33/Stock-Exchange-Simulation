@@ -10,7 +10,6 @@
     "@testing-library/user-event": "^12.8.3",
     "bootstrap": "^5.0.2",
     "chart.js": "^3.5.1",
-    "dotenv": "^8.2.0",
     "email-validator": "^2.0.4",
     "md5": "^2.3.0",
     "password-validator": "^5.1.1",
@@ -46,5 +45,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "dotenv": "^8.2.0",
+    "react-app-env": "^1.2.3"
   }
 }
