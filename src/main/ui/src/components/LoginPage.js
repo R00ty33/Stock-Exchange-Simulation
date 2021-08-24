@@ -22,7 +22,7 @@ function LoginPage() {
             headers: {
               'Content-Type': 'application/x-www-form-urlencoded'
             }
-          }
+        }
         Axios.post('http://localhost:8080/api/login', params, config).then((response) => {
             console.log(response.status, response, response.data);
             if (response.data.message === 'Unauthorized') {
@@ -32,8 +32,8 @@ function LoginPage() {
                 let access_token = response.data.access_token;
                 let refresh_token = response.data.refresh_token;
                 tokenProvider.setTokens(access_token, refresh_token);
-                console.log(tokenProvider.getToken());
-                history.push(`/Home`);
+                console.log("GOT TOKEN");
+                return history.push('/Dashboard');
             }
         }).catch((err) => {
             console.log("Promise Rejected", err.message, err.response.data);
@@ -74,6 +74,7 @@ function LoginPage() {
     const handlePassword = e => {
         setPassword(e.target.value);
     }
+
 
     return (
         <Flex height="100vh" alignItems="center" justifyContent="center">

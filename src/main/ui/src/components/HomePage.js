@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import { Flex, Heading, useColorMode, useColorModeValue, } from '@chakra-ui/react';
+import { Flex, Heading, useColorMode, useColorModeValue, Button, Box, Container, Grid, GridItem, extendTheme, withDefaultColorScheme} from '@chakra-ui/react';
 import { useHistory } from 'react-router-dom';
 import { DarkMode } from './DarkMode';
 import tokenProvider from './TokenProvider';
+import Sidebar from './Sidebar';
+import authProvider from './AuthProvider';
 
 function Home() {
     const { toggleColorMode } = useColorMode(); /** Changes ColorMode */
@@ -12,11 +14,16 @@ function Home() {
     const history = useHistory();  
 
     return (
-        <Flex height="100vh" alignItems="center" justifyContent="center">
-            <Flex direction="column" background={formBackground} p={12} rounded={6}>
-                <Heading mb={6}>Home
-                <DarkMode />
-                </Heading>
+        <Flex width="100%">
+            <Sidebar />
+            <Flex height="100vh" mt={6}>
+                <Heading>Dashboard</Heading>
+                <Button onClick={() => {
+                    authProvider.logout();
+                    return history.push("/Login"); 
+                }}>
+                    LOGOUT
+                </Button>
             </Flex>
         </Flex>
     )

@@ -1,8 +1,6 @@
 import React from 'react';
 
 const TokenProvider = {
-
-    
     setTokens: function(access_token, refresh_token) {
         localStorage.setItem("ACCESS_TOKEN", access_token);
         localStorage.setItem("REFRESH_TOKEN", refresh_token);
@@ -17,6 +15,9 @@ const TokenProvider = {
     },
 
     getExpirationDate: function(jwtToken) {
+        if (jwtToken === null || jwtToken === 'null') {
+            return null;
+        }
         if (!jwtToken) {
             return null;
         }
@@ -29,8 +30,8 @@ const TokenProvider = {
 
     
     isExpired: function(expirationDate) {
-        if (!expirationDate) {
-            return false;
+        if (expirationDate === null || expirationDate === 'null') {
+            return true;
         }
 
         return Date.now() > expirationDate; /* Returns true if the expiration is invalid/expired */
@@ -58,7 +59,8 @@ const TokenProvider = {
     },
 
     isLoggedIn: function() { 
-        if ((localStorage.getItem("ACCESS_TOKEN") === null) || (isExpired(localStorage.getItem("ACCESS_TOKEN")))) {
+        // if (localStorage.getItem("ACCESS_TOKEN")) return false;
+        if ((isExpired(getExpirationDate(localStorage.getItem("ACCESS_TOKEN"))))) {
             return false;
         }
         else {
@@ -73,10 +75,9 @@ export default TokenProvider; /** EXPORT FUNCTIONS */
 
 
 
-
 /** defined functions that are used in above functions */
 function getExpirationDate(jwtToken) {
-    if (!jwtToken) {
+    if (jwtToken === null || jwtToken === 'null') {
         return null;
     }
 
@@ -88,8 +89,11 @@ function getExpirationDate(jwtToken) {
 
 
 function isExpired (expirationDate) {
+    if (expirationDate === null || expirationDate === 'null') {
+        return true;
+    }
     if (!expirationDate) {
-        return false;
+        return true;
     }
 
     return Date.now() > expirationDate; /* Returns true if the expiration is invalid/expired */

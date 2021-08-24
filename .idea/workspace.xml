@@ -5,14 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3826ab77-1b9a-40ae-8f9a-d081454db116" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Stock_Exchange_Simulator_Documentation.docx" beforeDir="false" afterPath="$PROJECT_DIR$/Stock_Exchange_Simulator_Documentation.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/rudii/Stock/controller/StockController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rudii/Stock/controller/StockController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/ui/node_modules/.cache/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ui/node_modules/.cache/.eslintcache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/ui/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ui/node_modules/.package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/ui/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ui/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/ui/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ui/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/ui/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ui/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/ui/src/components/HomePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ui/src/components/HomePage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/ui/src/components/LoginPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ui/src/components/LoginPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/ui/src/components/SignUpPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ui/src/components/SignUpPage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/ui/src/components/TokenProvider.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ui/src/components/TokenProvider.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/rudii/Stock/controller/StockController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/rudii/Stock/controller/StockController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/~$ock_Exchange_Simulator_Documentation.docx" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -29,7 +46,7 @@
       <map>
         <entry key="JPA Inspector" value="true" />
         <entry key="JPA Palette" value="true" />
-        <entry key="JPA Structure" value="true" />
+        <entry key="JPA Structure" value="false" />
       </map>
     </option>
   </component>
@@ -74,7 +91,8 @@
       <updated>1629258135131</updated>
       <workItem from="1629258139293" duration="159000" />
       <workItem from="1629261257754" duration="60000" />
-      <workItem from="1629307834171" duration="8491000" />
+      <workItem from="1629307834171" duration="15057000" />
+      <workItem from="1629563048115" duration="13859000" />
     </task>
     <servers />
   </component>
