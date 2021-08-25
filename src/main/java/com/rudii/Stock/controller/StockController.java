@@ -39,8 +39,6 @@ public class StockController {
     @PostMapping("/GetStock")
     public Object[] getStockData(@RequestParam String symbol) throws IOException {
         Stocks stock = stockService.findStock(symbol);
-        System.out.println(symbol);
-        System.out.println(stock);
         StockQuote stockQuote = stockService.findQuotes(stock);
         List<HistoricalQuote> history = stockService.findHistory(stock);
         return new Object[]{stockQuote, history};

@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Axios from 'axios'; // API 
 import { Button, Flex, Heading, Input, useColorModeValue, Text, Alert, AlertIcon, AlertTitle, AlertDescription, CloseButton } from '@chakra-ui/react';
 import { useHistory } from 'react-router-dom';
 import { DarkMode } from './DarkMode';
+import authProvider from './AuthProvider';
+import tokenProvider from './TokenProvider';
 const validator = require("email-validator");
 const passwordValidator = require('password-validator');
 

@@ -16,22 +16,7 @@ const AuthProvider = {
     },
 
     useAuth: function() {
-        const [isLogged, setIsLogged] = useState(tokenProvider.isLoggedIn());
-
-        /*
-        useEffect(() => {
-            const listener = (newIsLogged) => {
-                setIsLogged(newIsLogged);
-            };
-    
-            tokenProvider.subscribe(listener);
-            return () => {
-                tokenProvider.unsubscribe(listener);
-            };
-        }, []);
-        */
-        return isLogged;
-
+        return tokenProvider.isLoggedIn();
     }
 
 }

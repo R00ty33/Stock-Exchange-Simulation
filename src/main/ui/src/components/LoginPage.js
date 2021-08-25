@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Axios from 'axios'; // API 
 import { Button, Flex, Heading, Input, useColorModeValue, Text, Alert, AlertIcon, AlertTitle, AlertDescription, CloseButton } from '@chakra-ui/react';
 import { useHistory } from 'react-router-dom';
 import { DarkMode } from './DarkMode';
 import tokenProvider from './TokenProvider';
+import authProvider from './AuthProvider';
 
 function LoginPage() {
     const formBackground = useColorModeValue("gray.100", "gray.700") /** Light Mode = gray.100,     Dark Mode = gray.700 */  
@@ -12,6 +13,18 @@ function LoginPage() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [incorrectPasswordAlert, setIncorrectPasswordAlert] = useState(false);
+
+    useEffect(() => {
+        handleLogged();
+    }, [])
+    
+    /** If logged in, go to Dashboard */
+    function handleLogged() {
+        if (authProvider.useAuth()) {
+            history.push('/Dashboard');
+        }
+    }
+
 
     function LoginAuthentication() {
         const params = new URLSearchParams();
@@ -32,7 +45,7 @@ function LoginPage() {
                 let access_token = response.data.access_token;
                 let refresh_token = response.data.refresh_token;
                 tokenProvider.setTokens(access_token, refresh_token);
-                console.log("GOT TOKEN");
+                console.log("Logged in: " + tokenProvider.isLoggedIn())
                 return history.push('/Dashboard');
             }
         }).catch((err) => {

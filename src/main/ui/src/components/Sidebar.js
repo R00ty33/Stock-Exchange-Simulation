@@ -6,7 +6,8 @@ import {
     Divider,
     Avatar,
     Heading,
-    Button
+    Button, 
+    Center,
 } from '@chakra-ui/react'
 import {
     FiMenu,
@@ -15,10 +16,12 @@ import {
     FiUser,
     FiDollarSign,
     FiBriefcase,
-    FiSettings
+    FiSettings,
+    FiLogOut
 } from 'react-icons/fi'
 import { IoPawOutline } from 'react-icons/io5'
 import NavItem from '../components/NavItem'
+import ButtonItem from '../components/ButtonItem';
 
 
 
@@ -33,6 +36,7 @@ export default function Sidebar() {
                     <NavItem url="/Stocks" navSize={navSize} icon={FiDollarSign} title="Stocks" />
                     <NavItem navSize={navSize} icon={FiBriefcase} title="Reports" />
                     <NavItem navSize={navSize} icon={FiSettings} title="Settings" />
+                    <ButtonItem navSize={navSize} icon={FiLogOut} title="Logout"/>
                 </div>
             )
         }
@@ -43,6 +47,7 @@ export default function Sidebar() {
                     <NavItem url="/Stocks" navSize={navSize} icon={FiDollarSign} title="Stocks" active/>
                     <NavItem navSize={navSize} icon={FiBriefcase} title="Reports" />
                     <NavItem navSize={navSize} icon={FiSettings} title="Settings" />
+                    <ButtonItem navSize={navSize} icon={FiLogOut} title="Logout"/>
                 </div>
             )
         }
@@ -53,6 +58,7 @@ export default function Sidebar() {
                     <NavItem url="/Stocks" navSize={navSize} icon={FiDollarSign} title="Stocks" />
                     <NavItem navSize={navSize} icon={FiBriefcase} title="Reports" active/>
                     <NavItem navSize={navSize} icon={FiSettings} title="Settings" />
+                    <ButtonItem navSize={navSize} icon={FiLogOut} title="Logout"/>
                 </div>
             )
         }
@@ -63,6 +69,7 @@ export default function Sidebar() {
                     <NavItem url="/Stocks" navSize={navSize} icon={FiDollarSign} title="Stocks" />
                     <NavItem navSize={navSize} icon={FiBriefcase} title="Reports" />
                     <NavItem navSize={navSize} icon={FiSettings} title="Settings" active/>
+                    <ButtonItem navSize={navSize} icon={FiLogOut} title="Logout"/>
                 </div>
             )
         }
