@@ -5,10 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3826ab77-1b9a-40ae-8f9a-d081454db116" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/ui/node_modules/.cache/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ui/node_modules/.cache/.eslintcache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/ui/src/components/GetGraph.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ui/src/components/GetGraph.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/ui/src/components/StocksPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ui/src/components/StocksPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/rudii/Stock/controller/StockController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rudii/Stock/controller/StockController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/rudii/Stock/controller/StockController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/rudii/Stock/controller/StockController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,6 +49,7 @@
     </option>
   </component>
   <component name="ProjectId" id="1wsrRz7MR0vysPnPRVRM2HNsKut" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -83,7 +84,7 @@
       <workItem from="1629258139293" duration="159000" />
       <workItem from="1629261257754" duration="60000" />
       <workItem from="1629307834171" duration="15057000" />
-      <workItem from="1629563048115" duration="28137000" />
+      <workItem from="1629563048115" duration="31978000" />
     </task>
     <servers />
   </component>

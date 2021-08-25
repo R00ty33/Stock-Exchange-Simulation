@@ -1,12 +1,10 @@
 package com.rudii.Stock.controller;
 
+import com.fasterxml.jackson.databind.util.JSONPObject;
 import com.rudii.Stock.model.Stocks;
 import com.rudii.Stock.service.StockService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import yahoofinance.Stock;
 import yahoofinance.histquotes.HistoricalQuote;
 import yahoofinance.quotes.stock.StockQuote;
@@ -36,6 +34,16 @@ public class StockController {
     public List<HistoricalQuote> getHistory(StockService stockService) throws IOException {
         Stocks stock = stockService.findStock("GME");
         return stockService.findHistory(stock);
+    }
+
+    @PostMapping("/GetStock")
+    public Object[] getStockData(@RequestParam String symbol) throws IOException {
+        Stocks stock = stockService.findStock(symbol);
+        System.out.println(symbol);
+        System.out.println(stock);
+        StockQuote stockQuote = stockService.findQuotes(stock);
+        List<HistoricalQuote> history = stockService.findHistory(stock);
+        return new Object[]{stockQuote, history};
     }
 
 

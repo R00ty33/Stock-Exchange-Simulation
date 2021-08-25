@@ -25,10 +25,10 @@ function SignUpPage() {
         if (validateEmail(email)) {
             if (validatePassword(password)) {
                 Axios.post('http://localhost:8080/api/signup', {
-                firstName: firstName,
-                lastName: lastName,
-                email: email,
-                password: password
+                    firstName: firstName,
+                    lastName: lastName,
+                    email: email,
+                    password: password
                 }).then((response) => {
                     console.log(response.status, response, response.data);
                     history.push(`/Login`);
