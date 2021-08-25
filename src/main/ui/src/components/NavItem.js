@@ -11,7 +11,6 @@ import {
 
 
 export default function NavItem({ icon, title, active, navSize, url}) {
-
     return (
         <Flex
             mt={30}

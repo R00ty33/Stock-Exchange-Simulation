@@ -4,10 +4,12 @@ import com.rudii.Stock.model.Stocks;
 import org.springframework.stereotype.Service;
 import yahoofinance.Stock;
 import yahoofinance.YahooFinance;
+import yahoofinance.histquotes.HistoricalQuote;
 import yahoofinance.quotes.stock.StockQuote;
 
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.util.List;
 
 @Service
 public class StockService {
@@ -29,6 +31,10 @@ public class StockService {
 
     public StockQuote findQuotes(Stocks stock) throws IOException {
         return stock.getStock().getQuote(true);
+    }
+
+    public List<HistoricalQuote> findHistory(Stocks stock) throws IOException {
+        return stock.getStock().getHistory();
     }
 
     public String findSymbol(Stocks stock) throws IOException {

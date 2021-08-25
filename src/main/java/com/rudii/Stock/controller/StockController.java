@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import yahoofinance.Stock;
+import yahoofinance.histquotes.HistoricalQuote;
 import yahoofinance.quotes.stock.StockQuote;
 
 import java.io.IOException;
@@ -25,11 +26,18 @@ public class StockController {
         this.stockService = stockService;
     }
 
-    @GetMapping
+    @GetMapping("/GME/Price")
     public StockQuote getPrice(StockService stockService) throws IOException {
         Stocks stock = stockService.findStock("GME");
         return stockService.findQuotes(stock);
     }
+
+    @GetMapping("/GME/History")
+    public List<HistoricalQuote> getHistory(StockService stockService) throws IOException {
+        Stocks stock = stockService.findStock("GME");
+        return stockService.findHistory(stock);
+    }
+
 
     /*
     public String getSymbol(StockService stockService) throws IOException {
