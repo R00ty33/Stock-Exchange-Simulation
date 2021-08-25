@@ -2,6 +2,7 @@ import axios from 'axios'; // API
 import { Line } from 'react-chartjs-2';
 
 export default function GetGraph({data}) {
+    console.log(data);
     return (
             <div>
                 <Line 
