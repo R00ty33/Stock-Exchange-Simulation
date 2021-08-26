@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="3826ab77-1b9a-40ae-8f9a-d081454db116" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rudii/Stock/controller/StockController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rudii/Stock/controller/StockController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/rudii/Stock/controller/StockController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/rudii/Stock/controller/StockController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,7 +81,7 @@
       <workItem from="1629258139293" duration="159000" />
       <workItem from="1629261257754" duration="60000" />
       <workItem from="1629307834171" duration="15057000" />
-      <workItem from="1629563048115" duration="34459000" />
+      <workItem from="1629563048115" duration="35187000" />
     </task>
     <servers />
   </component>

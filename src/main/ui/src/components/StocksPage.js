@@ -1,12 +1,28 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios'; // API 
+import { useDisclosure } from "@chakra-ui/react"
 import Sidebar from './Sidebar';
-import { Flex, Button, Input, Heading, Box, useColorMode, useColorModeValue, Text, Container, Grid, GridItem, extendTheme, withDefaultColorScheme} from '@chakra-ui/react';
+import { Flex, Button, Input, Heading, Box, useColorMode, useColorModeValue, Alert, AlertIcon, AlertTitle, 
+    AlertDescription, CloseButton, Text, Container, Grid, GridItem, extendTheme, withDefaultColorScheme,
+    Menu, MenuButton, MenuList, MenuItem, MenuItemOption, MenuGroup, MenuOptionGroup, MenuIcon, MenuCommand, MenuDivider,
+    Modal,
+    ModalOverlay,
+    ModalContent,
+    ModalHeader,
+    ModalFooter,
+    ModalBody,
+    ModalCloseButton,
+} from '@chakra-ui/react';
 import GetGraph from './GetGraph';
+import Buy from './Buy';
+import Sell from './Sell';
 
 function StocksPage () {
     const [symbol, setSymbol] = useState('');
     const [GRAPH, setGRAPH] = useState('');
+    const [symbolAlert, setSymbolAlert] = useState(false);
+    const { isOpen, onOpen, onClose } = useDisclosure()
+
     let symbolResponse = '';
     let price = 0;
     let changeInPercent = 0;
@@ -22,6 +38,7 @@ function StocksPage () {
         }
     }
 
+
     function handleSubmit() {
         axios.post('http://localhost:8080/api/v1/stocks/GetStock?symbol=' + symbol, {
             symbol: symbol,
@@ -34,72 +51,101 @@ function StocksPage () {
             }
         })
         .then(() => {
-            setGRAPH(getGraph(HISTORY));
+            setGRAPH(getGraph(HISTORY, symbolResponse));
         })
         .catch((error) => {
-            console.log(error);
+            if (error.message = 'Request failed with status code 500') {
+                setSymbolAlert(true);
+            } else {
+                console.log(error.message);
+            }
         })
     }
 
-    function getGraph(data) {
+    function getGraph(data, label) {
         return (
             <Grid 
                 h="400px"
                 templateColumns="repeat(5, 1lfr)"
                 gap={4}
+                mt={3} ml={6}
                 >
-                    <GridItem rowSpan={10} colSpan={3} bg="papayawhip">
-                        <Text fontSize="30px" color="tomato">
-                            <span style={{color: "black"}}>Symbol:</span> {symbolResponse}
+                    <GridItem rowSpan={10} colSpan={3} bg="gray.200">
+                        <Text fontSize="30px" color="blue.700">
+                            <span style={{color: "blue.700"}}>Symbol: </span> {symbolResponse}
                         </Text>
                         <br />
-                        <Text fontSize="30px" color="tomato">
-                            <span style={{color: "black"}}>Price:</span> {price}
+                        <Text fontSize="30px" color="blue.700">
+                            <span style={{color: "blue.700"}}>Price: </span> {price}
                         </Text>
                         <br />
-                        <Text fontSize="30px" color="tomato">
-                            <span style={{color: "black"}}>Change In Percent:</span> {changeInPercent}
-                            <Button float="right" size="md" height="48px" width="200px" border="2px" borderColor="green.500"_hover={{ bg: "green.400" }}>
-                                Buy
-                            </Button>
+                        <Text fontSize="30px" color="blue.700">
+                            <span style={{color: "blue.700"}}>Change In Percent: </span> {changeInPercent} %
                         </Text>
+                        <Menu>
+                            <div>
+                                <MenuButton as={Button} color="blue.700"float="right" mr={3} mb={3} size="md" height="48px" width="200px" border="2px" borderColor="blue.700"_hover={{ bg: "#AEC8CA" }}>
+                                    Trade now
+                                </MenuButton>
+                            </div>
+                            <MenuList>
+                                <MenuItem>
+                                    <div>
+                                        <Buy />
+                                    </div>
+                                </MenuItem>
+                                <MenuItem>
+                                    <div>
+                                        <Sell />
+                                    </div>
+                                </MenuItem>
+                            </MenuList>
+                        </Menu>
                     </GridItem>
-                    <GridItem colSpan={3} bg="papayawhip">
-                        <GetGraph data={data} />
+                    <GridItem colSpan={3} bg="gray.200">
+                        <GetGraph data={data} label={label} />
                     </GridItem>
             </Grid>
         )
     }
+
+    const SymbolAlert = () => {
+        return (
+          <Alert status="error" mt={3} ml={6} mb={3}>
+            <AlertIcon />
+            <AlertTitle mr={2}></AlertTitle>
+            <AlertDescription>Symbol does not exist</AlertDescription>
+            <CloseButton position="absolute" onClick={() => setSymbolAlert(false)} right="6px" top="8px"/>
+          </Alert>
+        )
+  }
+
+  
+  const HandleSymbolAlert = () => {
+    if (symbolAlert) {
+        return (
+            <SymbolAlert />
+        )
+    }
+    else {
+        return (
+            <div></div>
+        )
+    }
+}
 
 
     return (
         <Flex height="100vh">
             <Sidebar />
             <Container maxW="container.xl">
-                <Input placeholder="'GME'" value={symbol} onChange={handleSetSymbol} onKeyPress={handleKeyPress} />
+                <Input mt={3} ml={6} placeholder="Type ticker here..." value={symbol} onChange={handleSetSymbol} onKeyPress={handleKeyPress} />
+                <HandleSymbolAlert/>
                 {GRAPH}
             </Container>
         </Flex> 
     )
 }
 
-/*
-            <Flex height="100vh">
-                <Sidebar />
-                <Container maxW="container.xl">
-                    <Grid 
-                    h="400px"
-                    templateColumns="repeat(5, 1lfr)"
-                    gap={4}
-                    >
-                        <GridItem rowSpan={2} colSpan={1} bg="papayawhip">
-                        </GridItem>
-                        <GridItem colSpan={3} bg="papayawhip">
-                            {GME_GRAPH}
-                        </GridItem>
-                    </Grid>
-                </Container>
-            </Flex>
-            */
 export default StocksPage
 

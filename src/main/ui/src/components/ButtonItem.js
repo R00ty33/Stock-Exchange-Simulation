@@ -27,9 +27,10 @@ export default function ButtonItem({ icon, title, navSize,}) {
                     borderRadius={8}
                     _hover={{ textDecor: 'none', backgroundColor: "#AEC8CA" }}
                     w={navSize == "large" && "100%"}
+                    onClick={() => { authProvider.logout(); history.push('/Login')}}
                 >
                 
-                    <Button w="75%" variant="ghost" onClick={() => { authProvider.logout(); history.push('/Login')}}>
+                    <Button w="75%" variant="ghost">
                         <Flex>
                             <Icon as={icon} fontSize="x1" color={"gray.500"} />
                             <Text ml={5} display={navSize == "small" ? "none" : "flex"}>{title}</Text>
