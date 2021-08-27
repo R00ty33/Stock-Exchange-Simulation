@@ -2,6 +2,7 @@ package com.rudii.Stock.security;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
+import com.auth0.jwt.interfaces.DecodedJWT;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -45,7 +46,8 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
     @Override
     protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication authentication) throws IOException, ServletException {
         User user = (User)authentication.getPrincipal();
-        Algorithm algorithm = Algorithm.HMAC256("secret".getBytes());
+        //Algorithm algorithm = Algorithm.HMAC256("123".getBytes(StandardCharsets.UTF_8));
+        Algorithm algorithm = Algorithm.HMAC256("secret");
         String access_token = JWT.create()
                 .withSubject(user.getUsername())
                 .withExpiresAt(new Date(System.currentTimeMillis() + 15 * 60 * 1000)) /* 15 mins */
@@ -60,6 +62,11 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
         Map<String, String> tokens = new HashMap<>();
         tokens.put("access_token", access_token);
         tokens.put("refresh_token", refresh_token);
+        System.out.println(user.getUsername());
+        System.out.println(new Date(System.currentTimeMillis() + 15 * 60 * 1000));
+        System.out.println(request.getRequestURL().toString());
+        System.out.println(algorithm);
+        System.out.println(access_token);
         response.setContentType(APPLICATION_JSON_VALUE);
         new ObjectMapper().writeValue(response.getOutputStream(), tokens);
     }

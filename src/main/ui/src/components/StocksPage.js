@@ -91,12 +91,12 @@ function StocksPage () {
                             <MenuList>
                                 <MenuItem>
                                     <div>
-                                        <Buy />
+                                        <Buy symbol={symbolResponse} />
                                     </div>
                                 </MenuItem>
                                 <MenuItem>
                                     <div>
-                                        <Sell />
+                                        <Sell symbol={symbolResponse} />
                                     </div>
                                 </MenuItem>
                             </MenuList>

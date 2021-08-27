@@ -12,46 +12,62 @@ import javax.persistence.*;
 @TypeDef(name = "jsonb", typeClass = JsonBinaryType.class)
 public class UsersPositions {
 
-    /* AUTO INCREMENT FOR ID's */
-    @Id /* Specifies the primary key of an entity */
+    /* AUTO INCREMENT FOR ID's /
+    @Id /* Specifies the primary key of an entity /
     @SequenceGenerator(
             name = "userposition_sequence",
-            sequenceName = "userposition_sequence", /* name of the sequence in the DB */
-            allocationSize = 1 /* sequence value * allocationSize */
+            sequenceName = "userposition_sequence", /* name of the sequence in the DB /
+            allocationSize = 1 /* sequence value * allocationSize /
     )
 
-    /* Gives the generation strategy for the values of primary key */
+    /* Gives the generation strategy for the values of primary key /
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
             generator = "userposition_sequence"
     )
-    private int account_id;
+     */
+    @Id
+    private String user_email;
+    private Integer balance;
     @Type(type = "jsonb")
     @Column(columnDefinition = "jsonb")
-    private Positions test;
+    private Positions positions;
 
     public UsersPositions() {
 
     }
 
-    public UsersPositions(int id, Positions test) {
-        this.account_id = id;
-        this.test = test;
+    public UsersPositions(String user_email, Integer balance, Positions positions) {
+        this.user_email = user_email;
+        this.balance = balance;
+        this.positions = positions;
     }
 
-    public int getAccount_id() {
-        return account_id;
+    public void setUser_email(String user_email) {
+        this.user_email = user_email;
     }
 
-    public void setAccount_id(int account_id) {
-        this.account_id = account_id;
+    public Integer getBalance() {
+        return balance;
     }
 
-    public Positions getTest() {
-        return test;
+    public void setBalance(Integer balance) {
+        this.balance = balance;
     }
 
-    public void setTest(Positions test) {
-        this.test = test;
+    public String getUser_email() {
+        return user_email;
+    }
+
+    public void user_email(String user_email) {
+        this.user_email = user_email;
+    }
+
+    public Positions getPositions() {
+        return positions;
+    }
+
+    public void setPositions(Positions positions) {
+        this.positions = positions;
     }
 }

@@ -8,44 +8,33 @@ import java.time.LocalDate;
 /** Users Class Entity */
 public class Users {
 
-    /** AUTO INCREMENT FOR ID's */
-    @Id /** Specifies the primary key of an entity */
+    /* AUTO INCREMENT FOR ID's /
+    @Id /** Specifies the primary key of an entity /
     @SequenceGenerator(
             name = "user_sequence",
-            sequenceName = "user_sequence", /** name of the sequence in the DB */
-            allocationSize = 1 /** sequence value * allocationSize */
+            sequenceName = "user_sequence", /** name of the sequence in the DB /
+            allocationSize = 1 /** sequence value * allocationSize /
     )
 
-    /** Gives the generation strategy for the values of primary key */
+    /** Gives the generation strategy for the values of primary key /
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
             generator = "user_sequence"
     )
+    */
     /** Attributes */
-    private int id;
+    @Id
+    private String email;
     private String firstName;
     private String lastName;
-    private String email;
     private String password;
 
     /* NO-ARG Constructor */
     public Users() {
+
     }
 
     /** User Constructor */
-    public Users(int id,
-                 String firstName,
-                 String lastName,
-                 String email,
-                 String password) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.password = password;
-    }
-
-    /* User Constructor without ARG ID since ID is AUTO_INCREMENT*/
     public Users(String firstName,
                  String lastName,
                  String email,
@@ -56,10 +45,22 @@ public class Users {
         this.password = password;
     }
 
-    /** GETTERS & SETTERS */
-    public int getId() {
-        return id;
+    /* User Constructor without ARG ID since ID is AUTO_INCREMENT/
+    public Users(String firstName,
+                 String lastName,
+                 String email,
+                 String password) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
     }
+     */
+
+    /** GETTERS & SETTERS */
+    //public int getId() {
+    //    return id;
+    //}
 
     public String getFirstName() {
         return firstName;
@@ -77,9 +78,10 @@ public class Users {
         return password;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+    //public void setId(int id) {
+    //    this.id = id;
+    //}
+
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
@@ -102,7 +104,7 @@ public class Users {
     @Override
     public String toString() {
         return "User{" +
-                "id=" + id +
+               // "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +

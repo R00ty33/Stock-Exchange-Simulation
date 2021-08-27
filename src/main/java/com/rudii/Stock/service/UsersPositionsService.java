@@ -1,24 +1,27 @@
 package com.rudii.Stock.service;
 
-import com.rudii.Stock.Repository.UsersPositionsRepository;
+import com.rudii.Stock.Repository.StocksRepository;
 import com.rudii.Stock.model.UsersPositions;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
 public class UsersPositionsService {
-    private final UsersPositionsRepository usersPositionsRepository;
+    private final StocksRepository stocksRepository;
 
     @Autowired
-    public UsersPositionsService(UsersPositionsRepository usersPositionsRepository) {
-        this.usersPositionsRepository = usersPositionsRepository;
+    public UsersPositionsService(StocksRepository stocksRepository) {
+        this.stocksRepository = stocksRepository;
     }
 
     public List<UsersPositions> getPositions() {
-        return usersPositionsRepository.findAll(); /** JpaRepository Method findAll() */
+        return stocksRepository.findAll(); /** JpaRepository Method findAll() */
     }
 
-    public void addNewPosition(UsersPositions usersPositions) {
-        usersPositionsRepository.save(usersPositions);
+    public void addNewPosition(String email) {
+        //usersPositionsRepository.save(usersPositions);
+        System.out.println("yay");
+        stocksRepository.findUserByEmail(email);
+        System.out.println("yay");
     }
 }
