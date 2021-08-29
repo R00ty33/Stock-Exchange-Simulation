@@ -9,6 +9,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -17,6 +18,7 @@ public class UserConfig {
     @Bean
     /* executes method & registers the return value as Bean in the container */
           /* Creates Users in DB */
+
     CommandLineRunner commandLineRunner(UserRepository usersRepository, StocksRepository positionsRepository) {
         return args -> {
             Users nick = new Users(
@@ -34,19 +36,6 @@ public class UserConfig {
             );
             usersRepository.saveAll( /* JpaRepository Method */
                     List.of(nick, alex)
-            );
-
-            UsersPositions test = new UsersPositions(
-                    "n.rudolph2011@gmail.com",
-                    5000,
-                    new Positions(
-                            "GME",
-                            1000,
-                            160
-                    )
-            );
-            positionsRepository.saveAll( /** JpaRepository Method */
-                    List.of(test)
             );
         };
     }

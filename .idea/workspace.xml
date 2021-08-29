@@ -5,27 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3826ab77-1b9a-40ae-8f9a-d081454db116" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/rudii/Stock/Repository/StocksRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ad4c0547-84b8-4ae6-a736-d7a2d1b56dbc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ad4c0547-84b8-4ae6-a736-d7a2d1b56dbc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ad4c0547-84b8-4ae6-a736-d7a2d1b56dbc/entities/entities.dat" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ad4c0547-84b8-4ae6-a736-d7a2d1b56dbc/entities/entities.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ad4c0547-84b8-4ae6-a736-d7a2d1b56dbc/entities/entities.dat.values" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ad4c0547-84b8-4ae6-a736-d7a2d1b56dbc/entities/entities.dat.values" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ad4c0547-84b8-4ae6-a736-d7a2d1b56dbc/entities/entities.dat.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ad4c0547-84b8-4ae6-a736-d7a2d1b56dbc/entities/entities.dat.values.at" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ad4c0547-84b8-4ae6-a736-d7a2d1b56dbc/entities/entities.dat.values.s" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ad4c0547-84b8-4ae6-a736-d7a2d1b56dbc/entities/entities.dat.values.s" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ad4c0547-84b8-4ae6-a736-d7a2d1b56dbc/entities/entities.dat_i" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ad4c0547-84b8-4ae6-a736-d7a2d1b56dbc/entities/entities.dat_i" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rudii/Stock/Repository/UsersPositionsRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/rudii/Stock/config/UserConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rudii/Stock/config/UserConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rudii/Stock/controller/StockController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rudii/Stock/controller/StockController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/rudii/Stock/model/Positions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rudii/Stock/model/Positions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rudii/Stock/model/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rudii/Stock/model/Users.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/rudii/Stock/model/UsersPositions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rudii/Stock/model/UsersPositions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rudii/Stock/security/AuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rudii/Stock/security/AuthenticationFilter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/rudii/Stock/service/StockService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rudii/Stock/service/StockService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rudii/Stock/service/UsersPositionsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rudii/Stock/service/UsersPositionsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/rudii/Stock/Repository/UsersPositionsRepository.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/rudii/Stock/config/UserConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/rudii/Stock/config/UserConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/rudii/Stock/controller/StockController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/rudii/Stock/controller/StockController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/rudii/Stock/model/Users.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/rudii/Stock/model/Users.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/rudii/Stock/model/Positions.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/rudii/Stock/model/Positions.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/rudii/Stock/model/UsersPositions.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/rudii/Stock/model/UsersPositions.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/rudii/Stock/security/AuthenticationFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/rudii/Stock/security/AuthenticationFilter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/rudii/Stock/service/StockService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/rudii/Stock/service/StockService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/rudii/Stock/service/UsersPositionsService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/rudii/Stock/service/UsersPositionsService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,9 +84,20 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Spring Boot.StockApplication">
+    <configuration name="All in Stock" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Stock" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="StockApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="Stock" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.rudii.Stock.StockApplication" />
@@ -99,6 +105,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.All in Stock" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -111,7 +122,12 @@
       <workItem from="1629258139293" duration="159000" />
       <workItem from="1629261257754" duration="60000" />
       <workItem from="1629307834171" duration="15057000" />
-      <workItem from="1629563048115" duration="58296000" />
+      <workItem from="1629563048115" duration="60486000" />
+      <workItem from="1630102228138" duration="9733000" />
+      <workItem from="1630184800702" duration="262000" />
+      <workItem from="1630213216491" duration="604000" />
+      <workItem from="1630278225893" duration="122000" />
+      <workItem from="1630278377981" duration="1284000" />
     </task>
     <servers />
   </component>
@@ -128,5 +144,10 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

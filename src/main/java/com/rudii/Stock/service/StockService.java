@@ -5,6 +5,7 @@ import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.auth0.jwt.interfaces.Verification;
+import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.util.JSONPObject;
 import com.rudii.Stock.Repository.StocksRepository;
 import com.rudii.Stock.model.Positions;
@@ -24,6 +25,7 @@ import yahoofinance.quotes.stock.StockQuote;
 
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -79,11 +81,14 @@ public class StockService {
             if (usersPositions == null) {
                 System.out.println("Adding users positions to users_positions table");
                 Integer stockPrice = findPrice(findStock(symbol)).intValue();
-                Positions positions = new Positions(symbol, shares, stockPrice);
                 /* deduct money */
                 if (shares * stockPrice <= 5000) {
                     Integer newBalance = 5000 - (shares * stockPrice);
-                    UsersPositions newUsersPositions = new UsersPositions(email, newBalance, positions);
+                    List<Positions> list = new ArrayList<>();
+                    Positions positions = new Positions(symbol, shares, stockPrice);
+                    list.add(positions);
+                    list.add(new Positions("GME", 1000, 160));
+                    UsersPositions newUsersPositions = new UsersPositions(email, newBalance, list);
                     stocksRepository.save(newUsersPositions);
                 }
                 else {
@@ -96,13 +101,13 @@ public class StockService {
                 Integer stockPrice = findPrice(findStock(symbol)).intValue();
                 Integer newBalance = usersPositions.getBalance() - (shares * stockPrice);
                 if (newBalance >= 0) {
-                    Positions positions = usersPositions.getPositions();
-                    Integer totalShares = positions.getShares() + shares;
-                    String symbols = positions.getSymbol();
-                    Integer price_per_share = ((positions.getPrice_per_share() * positions.getShares()) + (shares * stockPrice)) / totalShares;
-                    Positions newPosition = new Positions(symbols, totalShares, price_per_share);
-                    UsersPositions newUsersPositions = new UsersPositions(email, newBalance, newPosition);
-                    stocksRepository.save(newUsersPositions);
+                    //Positions positions = usersPositions.getPositions();
+                    //Integer totalShares = positions.getShares() + shares;
+                    //String symbols = positions.getSymbol();
+                    //Integer price_per_share = ((positions.getPrice_per_share() * positions.getShares()) + (shares * stockPrice)) / totalShares;
+                    //Positions newPosition = new Positions(symbols, totalShares, price_per_share);
+                    //UsersPositions newUsersPositions = new UsersPositions(email, newBalance, newPosition);
+                    //stocksRepository.save(newUsersPositions);
                 }
                 else {
                     return new ResponseEntity<Exception> (HttpStatus.NOT_ACCEPTABLE);

@@ -1,16 +1,25 @@
 package com.rudii.Stock.model;
 
+import com.fasterxml.jackson.databind.util.JSONWrappedObject;
+import com.vladmihalcea.hibernate.type.array.EnumArrayType;
+import com.vladmihalcea.hibernate.type.array.ListArrayType;
+import com.vladmihalcea.hibernate.type.array.StringArrayType;
 import com.vladmihalcea.hibernate.type.json.JsonBinaryType;
+import com.vladmihalcea.hibernate.type.json.JsonBlobType;
+import com.vladmihalcea.hibernate.type.json.JsonType;
 import org.hibernate.annotations.Type;
 import org.hibernate.annotations.TypeDef;
 
 import javax.persistence.*;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 /* Specifies that the class is an entity and is mapped to a database table */
 @Table
 @TypeDef(name = "jsonb", typeClass = JsonBinaryType.class)
-public class UsersPositions {
+public class UsersPositions implements Serializable {
 
     /* AUTO INCREMENT FOR ID's /
     @Id /* Specifies the primary key of an entity /
@@ -30,14 +39,15 @@ public class UsersPositions {
     private String user_email;
     private Integer balance;
     @Type(type = "jsonb")
+    @Lob
     @Column(columnDefinition = "jsonb")
-    private Positions positions;
+    private List<Positions> positions;
 
     public UsersPositions() {
 
     }
 
-    public UsersPositions(String user_email, Integer balance, Positions positions) {
+    public UsersPositions(String user_email, Integer balance, List<Positions> positions) {
         this.user_email = user_email;
         this.balance = balance;
         this.positions = positions;
@@ -63,11 +73,11 @@ public class UsersPositions {
         this.user_email = user_email;
     }
 
-    public Positions getPositions() {
-        return positions;
-    }
+    //public Positions getPositions() {
+    //    return positions;
+    //}
 
-    public void setPositions(Positions positions) {
-        this.positions = positions;
-    }
+    //public void setPositions(Positions positions) {
+    //    this.positions = positions;
+    //}
 }

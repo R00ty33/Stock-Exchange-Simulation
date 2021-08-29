@@ -1,6 +1,8 @@
 package com.rudii.Stock.model;
 
-public class Positions {
+import java.io.Serializable;
+
+public class Positions implements Serializable {
 
     private String symbol;
     private int shares;
