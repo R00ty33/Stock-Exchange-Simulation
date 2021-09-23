@@ -39,7 +39,7 @@ export default function Buy({symbol}) {
 
     return (
         <>
-            <Button width="100%" onClick={onOpen}>Buy</Button>
+            <Button width="325%" onClick={onOpen}>Buy</Button>
             <Modal isOpen={isOpen} onClose={onClose}>
                 <ModalOverlay />
                 <ModalContent>

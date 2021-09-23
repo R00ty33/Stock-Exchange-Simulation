@@ -7,13 +7,13 @@ import tokenProvider from './components/TokenProvider';
 import StocksPage from "./components/StocksPage.js";
 import authProvider from './components/AuthProvider';
 import PrivateRoute from './components/PrivateRoute';
+import LeaderBoardPage from './components/LeaderBoardPage';
 require('dotenv').config()
 
 function App() {
     return (
       <BrowserRouter>
         <Switch>
-
           <Route path="/Login" exact component={LoginPage}>
             <LoginPage />
           </Route>
@@ -22,8 +22,16 @@ function App() {
             <SignUpPage />
           </Route>
 
+          <Route path="/Leaderboard" exact component={SignUpPage}>
+            <LeaderBoardPage />
+          </Route>
+
           <PrivateRoute exact path='/Dashboard' exact component={HomePage} />
           <PrivateRoute exact path='/Stocks' exact component={StocksPage} />
+
+          <Route component={LoginPage}>
+            <LoginPage />
+          </Route>
 
         </Switch>
       </BrowserRouter>

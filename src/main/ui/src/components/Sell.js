@@ -19,7 +19,7 @@ export default function Sell({symbol}) {
 
     return (
         <>
-            <Button width="100%" onClick={onOpen}>Sell</Button>
+            <Button width="325%" onClick={onOpen}>Sell</Button>
             <Modal isOpen={isOpen} onClose={onClose}>
                 <ModalOverlay />
                 <ModalContent>

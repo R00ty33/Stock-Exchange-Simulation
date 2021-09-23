@@ -73,7 +73,14 @@ public class UsersPositions implements Serializable {
         this.user_email = user_email;
     }
 
-    //public Positions getPositions() {
+    public List<Positions> getPositions() {
+        return positions;
+    }
+
+    public void setPositions(List<Positions> positions) {
+        this.positions = positions;
+    }
+//public Positions getPositions() {
     //    return positions;
     //}
 

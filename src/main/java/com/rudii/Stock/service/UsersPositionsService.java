@@ -20,8 +20,6 @@ public class UsersPositionsService {
 
     public void addNewPosition(String email) {
         //usersPositionsRepository.save(usersPositions);
-        System.out.println("yay");
         stocksRepository.findUserByEmail(email);
-        System.out.println("yay");
     }
 }

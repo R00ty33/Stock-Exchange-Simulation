@@ -34,7 +34,7 @@ export default function Sidebar() {
                 <div>
                     <NavItem url="/Dashboard" navSize={navSize} icon={FiHome} title="Dashboard" active/>
                     <NavItem url="/Stocks" navSize={navSize} icon={FiDollarSign} title="Stocks" />
-                    <NavItem navSize={navSize} icon={FiBriefcase} title="Reports" />
+                    <NavItem url="/LeaderBoard" navSize={navSize} icon={FiBriefcase} title="LeaderBoard" />
                     <NavItem navSize={navSize} icon={FiSettings} title="Settings" />
                     <ButtonItem navSize={navSize} icon={FiLogOut} title="Logout"/>
                 </div>
@@ -45,18 +45,18 @@ export default function Sidebar() {
                 <div>
                     <NavItem url="/Dashboard" navSize={navSize} icon={FiHome} title="Dashboard" />
                     <NavItem url="/Stocks" navSize={navSize} icon={FiDollarSign} title="Stocks" active/>
-                    <NavItem navSize={navSize} icon={FiBriefcase} title="Reports" />
+                    <NavItem url="/LeaderBoard" navSize={navSize} icon={FiBriefcase} title="LeaderBoard" />
                     <NavItem navSize={navSize} icon={FiSettings} title="Settings" />
                     <ButtonItem navSize={navSize} icon={FiLogOut} title="Logout"/>
                 </div>
             )
         }
-        if (window.location.pathname == "/Reports") {
+        if (window.location.pathname == "/LeaderBoard") {
             return (
                 <div>
                     <NavItem url="/Dashboard" navSize={navSize} icon={FiHome} title="Dashboard" />
                     <NavItem url="/Stocks" navSize={navSize} icon={FiDollarSign} title="Stocks" />
-                    <NavItem navSize={navSize} icon={FiBriefcase} title="Reports" active/>
+                    <NavItem url="/LeaderBoard" navSize={navSize} icon={FiBriefcase} title="LeaderBoard" active/>
                     <NavItem navSize={navSize} icon={FiSettings} title="Settings" />
                     <ButtonItem navSize={navSize} icon={FiLogOut} title="Logout"/>
                 </div>
@@ -67,7 +67,7 @@ export default function Sidebar() {
                 <div>
                     <NavItem url="/Dashboard" navSize={navSize} icon={FiHome} title="Dashboard" />
                     <NavItem url="/Stocks" navSize={navSize} icon={FiDollarSign} title="Stocks" />
-                    <NavItem navSize={navSize} icon={FiBriefcase} title="Reports" />
+                    <NavItem url="/LeaderBoard" navSize={navSize} icon={FiBriefcase} title="LeaderBoard" />
                     <NavItem navSize={navSize} icon={FiSettings} title="Settings" active/>
                     <ButtonItem navSize={navSize} icon={FiLogOut} title="Logout"/>
                 </div>
