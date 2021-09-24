@@ -7,32 +7,17 @@
     <list default="true" id="3826ab77-1b9a-40ae-8f9a-d081454db116" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/ad4c0547-84b8-4ae6-a736-d7a2d1b56dbc/entities/entities.dat" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ad4c0547-84b8-4ae6-a736-d7a2d1b56dbc/entities/entities.dat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/ad4c0547-84b8-4ae6-a736-d7a2d1b56dbc/entities/entities.dat.values" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ad4c0547-84b8-4ae6-a736-d7a2d1b56dbc/entities/entities.dat.values" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ad4c0547-84b8-4ae6-a736-d7a2d1b56dbc/entities/entities.dat.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ad4c0547-84b8-4ae6-a736-d7a2d1b56dbc/entities/entities.dat.values.at" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/ad4c0547-84b8-4ae6-a736-d7a2d1b56dbc/entities/entities.dat.values.s" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ad4c0547-84b8-4ae6-a736-d7a2d1b56dbc/entities/entities.dat.values.s" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/ad4c0547-84b8-4ae6-a736-d7a2d1b56dbc/entities/entities.dat_i" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ad4c0547-84b8-4ae6-a736-d7a2d1b56dbc/entities/entities.dat_i" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rudii/Stock/Repository/StocksRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rudii/Stock/Repository/StocksRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rudii/Stock/model/UsersPositions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rudii/Stock/model/UsersPositions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/rudii/Stock/controller/LeaderBoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rudii/Stock/controller/LeaderBoardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/rudii/Stock/controller/UserSignInController.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/rudii/Stock/service/StockService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rudii/Stock/service/StockService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rudii/Stock/service/UsersPositionsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rudii/Stock/service/UsersPositionsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/rudii/Stock/Repository/StocksRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/rudii/Stock/Repository/StocksRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/rudii/Stock/Repository/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/rudii/Stock/Repository/UserRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/rudii/Stock/StockApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/rudii/Stock/StockApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/rudii/Stock/config/UserConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/rudii/Stock/config/UserConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/rudii/Stock/controller/StockController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/rudii/Stock/controller/StockController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/rudii/Stock/controller/UserSignInController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/rudii/Stock/controller/UserSignInController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/rudii/Stock/controller/UserSignUpController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/rudii/Stock/controller/UserSignUpController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/rudii/Stock/model/Positions.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/rudii/Stock/model/Positions.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/rudii/Stock/model/Stocks.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/rudii/Stock/model/Stocks.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/rudii/Stock/model/Users.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/rudii/Stock/model/Users.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/rudii/Stock/model/UsersPositions.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/rudii/Stock/model/UsersPositions.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/rudii/Stock/security/AuthenticationFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/rudii/Stock/security/AuthenticationFilter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/rudii/Stock/security/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/rudii/Stock/security/SecurityConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/rudii/Stock/service/RefreshService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/rudii/Stock/service/RefreshService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/rudii/Stock/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rudii/Stock/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/rudii/Stock/controller/LeaderBoardController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/rudii/Stock/controller/LeaderBoardController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/rudii/Stock/controller/UserSignInController.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/rudii/Stock/service/StockService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/rudii/Stock/service/StockService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/rudii/Stock/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/rudii/Stock/service/UserService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/rudii/Stock/service/UsersPositionsService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/rudii/Stock/service/UsersPositionsService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/rudii/Stock/StockApplicationTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/rudii/Stock/StockApplicationTests.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,7 +130,8 @@
       <workItem from="1631721452919" duration="60000" />
       <workItem from="1631829512192" duration="4420000" />
       <workItem from="1632201495556" duration="3587000" />
-      <workItem from="1632354790510" duration="9072000" />
+      <workItem from="1632354790510" duration="9730000" />
+      <workItem from="1632452260162" duration="10194000" />
     </task>
     <servers />
   </component>

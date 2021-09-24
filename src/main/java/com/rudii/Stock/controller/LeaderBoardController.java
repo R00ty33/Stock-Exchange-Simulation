@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/LeaderBoard")
+@RequestMapping(path ="/api/v1/LeaderBoard")
 public class LeaderBoardController {
     private UserService userService;
 

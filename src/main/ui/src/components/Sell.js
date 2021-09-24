@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios'; // API 
 import { useDisclosure } from "@chakra-ui/react"
 import Sidebar from './Sidebar';
+import tokenProvider from './TokenProvider'; 
 import { Flex, Button, Input, Heading, Box, useColorMode, useColorModeValue, Alert, AlertIcon, AlertTitle, 
     AlertDescription, CloseButton, Text, Container, Grid, GridItem, extendTheme, withDefaultColorScheme,
     Menu, MenuButton, MenuList, MenuItem, MenuItemOption, MenuGroup, MenuOptionGroup, MenuIcon, MenuCommand, MenuDivider,
@@ -16,6 +17,25 @@ import { Flex, Button, Input, Heading, Box, useColorMode, useColorModeValue, Ale
 
 export default function Sell({symbol}) {
     const { isOpen, onOpen, onClose } = useDisclosure()
+    const [ shares, setShares] = useState('');
+
+    const handleShares = (e) => {
+        setShares(e.target.value);
+    }
+
+    function handleSubmit() {
+        let accessToken = tokenProvider.getAccessToken();
+        axios.post('http://localhost:8080/api/v1/stocks/Trade?accessToken=' + accessToken + '&symbol=' + symbol + '&shares=' + shares + '&transaction=sell', {
+            accessToken: accessToken,
+            symbol: symbol,
+            shares: shares,
+            transaction: 'sell',
+        }).then((response) => {  
+            console.log(response);
+        }).catch((err) => {
+            console.log(err);
+        })
+    }
 
     return (
         <>
@@ -26,10 +46,13 @@ export default function Sell({symbol}) {
                     <ModalHeader>Sell {symbol}</ModalHeader>
                     <ModalCloseButton />
                     <ModalBody>
-                    
+                        <Input type="text" onChange={handleShares} placeholder="Number of shares" variant="filled" mb={3}></Input>
                     </ModalBody>
                     
                     <ModalFooter>
+                        <Button colorScheme="blue" mr={3} onClick={handleSubmit}>
+                            Sell
+                        </Button>
                         <Button colorScheme="blue" mr={3} onClick={onClose}>
                             Close
                         </Button>

@@ -1,7 +1,15 @@
 package com.rudii.Stock.service;
 
+import com.auth0.jwt.JWT;
+import com.auth0.jwt.algorithms.Algorithm;
+import com.auth0.jwt.impl.JWTParser;
+import com.auth0.jwt.interfaces.DecodedJWT;
+import com.auth0.jwt.interfaces.Verification;
+import com.rudii.Stock.Repository.StocksRepository;
 import com.rudii.Stock.Repository.UserRepository;
+import com.rudii.Stock.model.Stocks;
 import com.rudii.Stock.model.Users;
+import com.rudii.Stock.model.UsersPositions;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +33,7 @@ import java.util.Optional;
 public class UserService implements UserDetailsService {
 
    private final UserRepository userRepository;
+   private final StocksRepository stocksRepository;
    private final PasswordEncoder passwordEncoder;
 
     @Override
@@ -48,6 +57,24 @@ public class UserService implements UserDetailsService {
        this.userRepository = userRepository;
     }
     */
+
+    public Users getUserDetailsByAccessToken(String accessToken) {
+        Algorithm algorithm = Algorithm.HMAC256("secret");
+        DecodedJWT jwt = JWT.decode(accessToken);
+        String email = jwt.getSubject();
+        Verification verifier = JWT.require(algorithm);
+        System.out.println(verifier.build().verify(accessToken));
+        return userRepository.findUserByEmail(email);
+    }
+
+    public UsersPositions getUserPositionsByAccessToken(String accessToken) {
+        Algorithm algorithm = Algorithm.HMAC256("secret");
+        DecodedJWT jwt = JWT.decode(accessToken);
+        String email = jwt.getSubject();
+        Verification verifier = JWT.require(algorithm);
+        System.out.println(verifier.build().verify(accessToken));
+        return stocksRepository.findUserByEmail(email);
+    }
 
     public List<Users> getUsers() {
        return userRepository.findAll(); /** JpaRepository Method findAll() */

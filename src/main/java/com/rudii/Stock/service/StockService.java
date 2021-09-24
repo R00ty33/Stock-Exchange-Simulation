@@ -74,50 +74,136 @@ public class StockService {
 
     public ResponseEntity<Exception> addNewPosition(String accessToken, String symbol, int shares, String transaction)  {
         String email = JWT.decode(accessToken).getSubject();
-        try {
-            /* verify token */
-            Algorithm algorithm = Algorithm.HMAC256("secret");
-            Verification verifier = JWT.require(algorithm);
-            System.out.println(verifier.build().verify(accessToken));
+        System.out.println(transaction);
+        if (transaction.matches("buy")) {
+            System.out.println("BUYING");
+            try {
+                /* verify token */
+                Algorithm algorithm = Algorithm.HMAC256("secret");
+                Verification verifier = JWT.require(algorithm);
+                System.out.println(verifier.build().verify(accessToken));
 
-            /* if user isnt in database, add users new positions */
-            UsersPositions usersPositions = stocksRepository.findUserByEmail(email);
-            if (usersPositions == null) {
-                System.out.println("Adding users positions to users_positions table");
-                int stockPrice = findPrice(findStock(symbol)).intValue();
+                /* if user isnt in database, add users new positions */
+                UsersPositions usersPositions = stocksRepository.findUserByEmail(email);
+                if (usersPositions == null) {
+                    System.out.println("Adding users positions to users_positions table");
+                    int stockPrice = findPrice(findStock(symbol)).intValue();
+                    /* deduct money */
+                    if (shares * stockPrice <= 5000) {
+                        Integer newBalance = 5000 - (shares * stockPrice);
+                        List<Positions> list = new ArrayList<>();
+                        Positions positions = new Positions(symbol, shares, stockPrice);
+                        list.add(positions);
+                        UsersPositions newUsersPositions = new UsersPositions(email, newBalance, list);
+                        stocksRepository.save(newUsersPositions);
+                    } else {
+                        return new ResponseEntity<Exception>(HttpStatus.NOT_ACCEPTABLE);
+                    }
+                } else if (usersPositions != null) {
+                    /* if position exists, update position */
+                    /* check balance */
+                    int stockPrice = findPrice(findStock(symbol)).intValue();
+                    int newBalance = usersPositions.getBalance() - (shares * stockPrice);
+                    if (newBalance >= 0) {
+                        System.out.println("User exists");
+                        List<Positions> list = usersPositions.getPositions();
+                        boolean symbolExists = false;
+                        for (int i = 0; i < list.size(); i++) {
+                            System.out.println("Symbol = " + list.get(i).getSymbol());
+                            System.out.println("Current Shares = " + list.get(i).getShares());
+                            System.out.println("Current price per share = " + list.get(i).getPrice_per_share());
+                            if (list.get(i).getSymbol().matches(symbol)) { // Position exists
+                                System.out.println("Found: Position Exists...");
+                                System.out.println("Updating totalShares and price_per_share");
+                                int totalShares = list.get(i).getShares() + shares;
+                                int price_per_share = ((list.get(i).getPrice_per_share() * list.get(i).getShares()) + (shares * stockPrice)) / totalShares;
+                                System.out.println("Total Shares: " + totalShares);
+                                System.out.println("Price per Share = " + price_per_share);
+                                System.out.println("New Balance: " + newBalance);
+                                Positions updatedPosition = new Positions(symbol, totalShares, price_per_share);
+                                list.set(i, updatedPosition);
+                                symbolExists = true;
+                            }
+                        }
+                        if (symbolExists) {
+                            System.out.println("Found: Position Exists...");
+                            System.out.println("Updating database...");
+                            ObjectMapper objectMapper = new ObjectMapper();
+                            String json = objectMapper.writeValueAsString(list);
+                            System.out.println(json);
+                            stocksRepository.updatePositionsByEmail(json, email);
+                            stocksRepository.updateBalanceByEmail(newBalance, email);
+                            String result = objectMapper.writeValueAsString(stocksRepository.findUserByEmail(email));
+                            System.out.println(result);
+                        } else {
+                            System.out.println("Position Does Not Exist...");
+                            Positions newPosition = new Positions(symbol, shares, stockPrice);
+                            list.add(newPosition);
+                            System.out.println("Updating database...");
+                            ObjectMapper objectMapper = new ObjectMapper();
+                            String json = objectMapper.writeValueAsString(list);
+                            System.out.println(json);
+                            stocksRepository.updatePositionsByEmail(json, email);
+                            stocksRepository.updateBalanceByEmail(newBalance, email);
+                            String result = objectMapper.writeValueAsString(stocksRepository.findUserByEmail(email));
+                            System.out.println(result);
+                        }
+                    } else {
+                        return new ResponseEntity<Exception>(HttpStatus.NOT_ACCEPTABLE);
+                    }
+                    /* if position does not exists, add position */
+                }
+                /* if user doesnt have current stock, add stock to positions */
                 /* deduct money */
-                if (shares * stockPrice <= 5000) {
-                    Integer newBalance = 5000 - (shares * stockPrice);
-                    List<Positions> list = new ArrayList<>();
-                    Positions positions = new Positions(symbol, shares, stockPrice);
-                    list.add(positions);
-                    UsersPositions newUsersPositions = new UsersPositions(email, newBalance, list);
-                    stocksRepository.save(newUsersPositions);
-                }
-                else {
-                    return new ResponseEntity<Exception> (HttpStatus.NOT_ACCEPTABLE);
-                }
+
+                //System.out.println(stocksRepository.findUserByEmail(email).toString());
+                //System.out.println(stocksRepository.findUserByEmail(email).getPositions().toString());
+            } catch (Exception e) {
+                System.out.println("error: " + e);
+                return new ResponseEntity<Exception>(HttpStatus.UNAUTHORIZED);
             }
-            else if (usersPositions != null) {
-                /* if position exists, update position */
-                /* check balance */
-                int stockPrice = findPrice(findStock(symbol)).intValue();
-                int newBalance = usersPositions.getBalance() - (shares * stockPrice);
-                if (newBalance >= 0) {
+        }
+        else if(transaction.matches("sell")) {
+            System.out.println("SELLING");
+            try {
+                /* verify token */
+                Algorithm algorithm = Algorithm.HMAC256("secret");
+                Verification verifier = JWT.require(algorithm);
+                System.out.println(verifier.build().verify(accessToken));
+
+                UsersPositions usersPositions = stocksRepository.findUserByEmail(email);
+                if (usersPositions == null) {
+                    System.out.println("Error: Cannot sell when user does not have positions");
+                    return new ResponseEntity<Exception>(HttpStatus.UNAUTHORIZED);
+                }
+                else if (usersPositions != null) {
+                    int stockPrice = findPrice(findStock(symbol)).intValue();
+                    int newBalance = usersPositions.getBalance() + (shares * stockPrice);
                     System.out.println("User exists");
                     List<Positions> list = usersPositions.getPositions();
                     boolean symbolExists = false;
-                    for (int i=0; i<list.size(); i++) {
+                    for (int i = 0; i < list.size(); i++) {
                         System.out.println("Symbol = " + list.get(i).getSymbol());
                         System.out.println("Current Shares = " + list.get(i).getShares());
                         System.out.println("Current price per share = " + list.get(i).getPrice_per_share());
                         if (list.get(i).getSymbol().matches(symbol)) { // Position exists
+                            if (list.get(i).getShares() < shares) {
+                                System.out.println("Error: can't sell more shares then you own");
+                                return new ResponseEntity<Exception>(HttpStatus.UNAUTHORIZED);
+                            }
                             System.out.println("Found: Position Exists...");
                             System.out.println("Updating totalShares and price_per_share");
-                            int totalShares = list.get(i).getShares() + shares;
-                            int price_per_share = ((list.get(i).getPrice_per_share() * list.get(i).getShares()) + (shares * stockPrice)) / totalShares;
+                            int totalShares = list.get(i).getShares() - shares;
+                            int price_per_share;
+                            if (totalShares == 0) {
+                                price_per_share = 0;
+                            }
+                            else {
+                                price_per_share = ((list.get(i).getPrice_per_share() * list.get(i).getShares()) - (shares * stockPrice)) / totalShares;
+                            }
                             System.out.println("Total Shares: " + totalShares);
                             System.out.println("Price per Share = " + price_per_share);
+                            System.out.println("New Balance: " + newBalance);
                             Positions updatedPosition = new Positions(symbol, totalShares, price_per_share);
                             list.set(i, updatedPosition);
                             symbolExists = true;
@@ -135,33 +221,26 @@ public class StockService {
                         System.out.println(result);
                     } else {
                         System.out.println("Position Does Not Exist...");
-                        Positions newPosition = new Positions(symbol, shares, stockPrice);
-                        list.add(newPosition);
-                        System.out.println("Updating database...");
-                        ObjectMapper objectMapper = new ObjectMapper();
-                        String json = objectMapper.writeValueAsString(list);
-                        System.out.println(json);
-                        stocksRepository.updatePositionsByEmail(json, email);
-                        stocksRepository.updateBalanceByEmail(newBalance, email);
-                        String result = objectMapper.writeValueAsString(stocksRepository.findUserByEmail(email));
-                        System.out.println(result);
+                        System.out.println("Error");
                     }
                 }
                 else {
-                    return new ResponseEntity<Exception> (HttpStatus.NOT_ACCEPTABLE);
+                    System.out.println("error");
                 }
-                /* if position does not exists, add position */
-            }
-            /* if user doesnt have current stock, add stock to positions */
-                /* deduct money */
 
-            //System.out.println(stocksRepository.findUserByEmail(email).toString());
-            //System.out.println(stocksRepository.findUserByEmail(email).getPositions().toString());
+                // if position does not exist
+                // else position exist
+            } catch (Exception e) {
+                System.out.println("error: " + e);
+                return new ResponseEntity<Exception>(HttpStatus.UNAUTHORIZED);
+            }
+
         }
-        catch(Exception e) {
-            System.out.println("error in addNewPosition" + e);
-            return new ResponseEntity<Exception> (HttpStatus.UNAUTHORIZED);
+        else {
+            // Print error
         }
+
+
 
         return new ResponseEntity<Exception> (HttpStatus.OK);
     }
