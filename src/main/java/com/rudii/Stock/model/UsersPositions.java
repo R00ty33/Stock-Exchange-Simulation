@@ -38,6 +38,7 @@ public class UsersPositions implements Serializable {
     @Id
     private String user_email;
     private Integer balance;
+    private Integer portfolioBalance;
     @Type(type = "jsonb")
     @Lob
     @Column(columnDefinition = "jsonb")
@@ -47,9 +48,10 @@ public class UsersPositions implements Serializable {
 
     }
 
-    public UsersPositions(String user_email, Integer balance, List<Positions> positions) {
+    public UsersPositions(String user_email, Integer balance, Integer portfolioBalance, List<Positions> positions) {
         this.user_email = user_email;
         this.balance = balance;
+        this.portfolioBalance = portfolioBalance;
         this.positions = positions;
     }
 
@@ -80,7 +82,16 @@ public class UsersPositions implements Serializable {
     public void setPositions(List<Positions> positions) {
         this.positions = positions;
     }
-//public Positions getPositions() {
+
+    public Integer getPortfolioBalance() {
+        return portfolioBalance;
+    }
+
+    public void setPortfolioBalance(Integer portfolioBalance) {
+        this.portfolioBalance = portfolioBalance;
+    }
+
+    //public Positions getPositions() {
     //    return positions;
     //}
 

@@ -21,16 +21,12 @@ function LeaderBoard() {
     const [modeName, setModeName] = useState('Dark Mode'); /** Determines Light or Dark Mode Name */
     const history = useHistory();  
     const [leaderBoardData, setLeaderBoardData] = useState('');
-    let STACK = []
 
-    function handleSubmit() {
+    useEffect(() => {
         axios.get('http://localhost:8080/api/v1/LeaderBoard/GetLeaderBoard', {
         }).then((response) => {
-            console.log(response);
-            for (let i = 0; i < response.data[1].length; i++) {
-                STACK.push(response.data())
-            }
-            setLeaderBoardData(getTable('test'));
+            console.log(response.data);
+            setLeaderBoardData(getTable(response.data));
         })
         .catch((error) => {
             if (error.message = 'Request failed with status code 500') {
@@ -38,46 +34,27 @@ function LeaderBoard() {
                 console.log(error.message);
             }
         })
-    }
+    }, []);
 
-    function getTable(first_email) {
+    function getTable(data) {
+        let formattedData = [];
+        for (let i=0; i<data.length; i++) {
+            let tempRank = i + 1;
+            let tempEmail = data[i].user_email
+            let tempBalance = data[i].portfolioBalance;
+            formattedData.push(<Tbody><Tr><Td>{tempRank}</Td><Td>{tempEmail}</Td><Td>{tempBalance}</Td></Tr></Tbody>)
+        }
         return (
             <Table>
-                <TableCaption>Top 5</TableCaption>
+                <TableCaption>Rankings</TableCaption>
                 <Thead>
                     <Tr>
                         <Th>Rank</Th>
                         <Th>Email</Th>
-                        <Th>Net Gain</Th>
+                        <Th>Net Balance</Th>
                     </Tr>
                 </Thead>
-                <Tbody>
-                    <Tr>
-                        <Td>1</Td>
-                        <Td>{first_email}</Td>
-                        <Td></Td>
-                    </Tr>
-                    <Tr>
-                        <Td>2</Td>
-                        <Td></Td>
-                        <Td></Td>
-                    </Tr>
-                    <Tr>
-                        <Td>3</Td>
-                        <Td></Td>
-                        <Td></Td>
-                    </Tr>
-                    <Tr>
-                        <Td>4</Td>
-                        <Td></Td>
-                        <Td></Td>
-                    </Tr>
-                    <Tr>
-                        <Td>5</Td>
-                        <Td></Td>
-                        <Td></Td>
-                    </Tr>
-                </Tbody>
+                {formattedData}
             </Table>
         )
     }
@@ -87,8 +64,9 @@ function LeaderBoard() {
             <Sidebar />
             <Flex height="100vh" mt={6}>
                 <Heading ml={8}>LeaderBoard</Heading>
-                <Button onClick={() => handleSubmit()}>Click Me</Button>
+                <Container ml={5} mt={6}>
                 {leaderBoardData}
+                </Container>
             </Flex>
         </Flex>
     )

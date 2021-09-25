@@ -13,6 +13,8 @@ import com.rudii.Stock.model.UsersPositions;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -35,6 +37,7 @@ public class UserService implements UserDetailsService {
    private final UserRepository userRepository;
    private final StocksRepository stocksRepository;
    private final PasswordEncoder passwordEncoder;
+   private final StockService stockService;
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
@@ -59,25 +62,44 @@ public class UserService implements UserDetailsService {
     */
 
     public Users getUserDetailsByAccessToken(String accessToken) {
-        Algorithm algorithm = Algorithm.HMAC256("secret");
-        DecodedJWT jwt = JWT.decode(accessToken);
-        String email = jwt.getSubject();
-        Verification verifier = JWT.require(algorithm);
-        System.out.println(verifier.build().verify(accessToken));
-        return userRepository.findUserByEmail(email);
+        try {
+            Algorithm algorithm = Algorithm.HMAC256("secret");
+            DecodedJWT jwt = JWT.decode(accessToken);
+
+            String email = jwt.getSubject();
+            Verification verifier = JWT.require(algorithm);
+            System.out.println(verifier.build().verify(accessToken));
+            return userRepository.findUserByEmail(email);
+        }
+        catch (Exception e) {
+            System.out.println("Catch:" + e);
+        }
+        return (null);
     }
 
     public UsersPositions getUserPositionsByAccessToken(String accessToken) {
-        Algorithm algorithm = Algorithm.HMAC256("secret");
-        DecodedJWT jwt = JWT.decode(accessToken);
-        String email = jwt.getSubject();
-        Verification verifier = JWT.require(algorithm);
-        System.out.println(verifier.build().verify(accessToken));
-        return stocksRepository.findUserByEmail(email);
+        try {
+            Algorithm algorithm = Algorithm.HMAC256("secret");
+            DecodedJWT jwt = JWT.decode(accessToken);
+
+            String email = jwt.getSubject();
+            Verification verifier = JWT.require(algorithm);
+            System.out.println(verifier.build().verify(accessToken));
+            stockService.updatePortfolioBalance(email);
+            return stocksRepository.findUserByEmail(email);
+        }
+        catch (Exception e) {
+            System.out.println("Catch:" + e);
+        }
+        return (null);
     }
 
     public List<Users> getUsers() {
        return userRepository.findAll(); /** JpaRepository Method findAll() */
+    }
+
+    public List<UsersPositions> getLeaderBoard() {
+        return stocksRepository.getLeaderBoard();
     }
 
     public Users getUser(int id) {

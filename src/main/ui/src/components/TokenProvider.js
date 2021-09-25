@@ -1,4 +1,5 @@
 import React from 'react';
+import jwt from 'jwt-decode';
 
 const TokenProvider = {
     setTokens: function(access_token, refresh_token) {
@@ -56,6 +57,12 @@ const TokenProvider = {
         }
 
         return localStorage.getItem("ACCESS_TOKEN");
+    },
+
+    getEmail: function() {
+        let token = localStorage.getItem("ACCESS_TOKEN");
+        let decoded = jwt(token);
+        return decoded.sub;
     },
 
     isLoggedIn: function() { 

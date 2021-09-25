@@ -1,6 +1,7 @@
 package com.rudii.Stock.controller;
 
 import com.rudii.Stock.model.Users;
+import com.rudii.Stock.model.UsersPositions;
 import com.rudii.Stock.service.StockService;
 import com.rudii.Stock.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +23,7 @@ public class LeaderBoardController {
     }
 
     @GetMapping("/GetLeaderBoard")
-    public List<Users> getLeaderBoard() {
-       return userService.getUsers();
+    public List<UsersPositions> getLeaderBoard() {
+       return userService.getLeaderBoard();
     }
 }

@@ -11,6 +11,7 @@
     "bootstrap": "^5.0.2",
     "chart.js": "^3.5.1",
     "email-validator": "^2.0.4",
+    "jwt-decode": "^3.1.2",
     "md5": "^2.3.0",
     "password-validator": "^5.1.1",
     "react": "^17.0.2",

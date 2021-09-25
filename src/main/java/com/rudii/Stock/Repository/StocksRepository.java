@@ -29,4 +29,12 @@ public interface StocksRepository extends JpaRepository<UsersPositions, Integer>
     @Modifying
     @Query("UPDATE UsersPositions SET balance = ?1 WHERE user_email = ?2")
     void updateBalanceByEmail(Integer newBalance, String email);
+
+    @Transactional
+    @Modifying
+    @Query("UPDATE UsersPositions SET portfolioBalance = ?1 WHERE user_email = ?2")
+    void updatePortfolioBalanceByEmail(Integer newBalance, String email);
+
+    @Query("SELECT s FROM UsersPositions s ORDER BY s.portfolioBalance DESC")
+    List<UsersPositions> getLeaderBoard();
 }

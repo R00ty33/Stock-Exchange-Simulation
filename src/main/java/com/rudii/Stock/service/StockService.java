@@ -72,6 +72,25 @@ public class StockService {
         return stock.getStock();
     }
 
+    public void updatePortfolioBalance(String email) {
+        UsersPositions usersPositions = stocksRepository.findUserByEmail(email);
+        if (usersPositions != null) {
+            List<Positions> list = usersPositions.getPositions();
+            int newBalance = usersPositions.getBalance();
+            for (int i = 0; i < list.size(); i++) {
+                System.out.println("Updating Portfolio Balance...");
+                int shares = list.get(i).getShares();
+                try {
+                    int price = findPrice(findStock(list.get(i).getSymbol())).intValue();
+                    newBalance += shares * price;
+                } catch (Exception e) {
+                    System.out.println("Catch: " + e);
+                }
+            }
+            stocksRepository.updatePortfolioBalanceByEmail(newBalance, email);
+        }
+    }
+
     public ResponseEntity<Exception> addNewPosition(String accessToken, String symbol, int shares, String transaction)  {
         String email = JWT.decode(accessToken).getSubject();
         System.out.println(transaction);
@@ -94,13 +113,13 @@ public class StockService {
                         List<Positions> list = new ArrayList<>();
                         Positions positions = new Positions(symbol, shares, stockPrice);
                         list.add(positions);
-                        UsersPositions newUsersPositions = new UsersPositions(email, newBalance, list);
+                        UsersPositions newUsersPositions = new UsersPositions(email, newBalance, 5000, list);
                         stocksRepository.save(newUsersPositions);
                     } else {
                         return new ResponseEntity<Exception>(HttpStatus.NOT_ACCEPTABLE);
                     }
                 } else if (usersPositions != null) {
-                    /* if position exists, update position */
+                    /* if users has positions, update position */
                     /* check balance */
                     int stockPrice = findPrice(findStock(symbol)).intValue();
                     int newBalance = usersPositions.getBalance() - (shares * stockPrice);

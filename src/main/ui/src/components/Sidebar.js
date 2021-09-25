@@ -22,11 +22,13 @@ import {
 import { IoPawOutline } from 'react-icons/io5'
 import NavItem from '../components/NavItem'
 import ButtonItem from '../components/ButtonItem';
-
+import tokenProvider from './TokenProvider';
 
 
 export default function Sidebar() {
     const [navSize, changeNavSize] = useState("large")
+    let email = tokenProvider.getEmail();
+    
 
     const getActiveSideBar = () => {
         if (window.location.pathname == "/Dashboard") {
@@ -120,8 +122,8 @@ export default function Sidebar() {
                 <Flex mt={4} align="center">
                     <Avatar size="sm" src="avatar-1.jpg" />
                     <Flex flexDir="column" ml={4} display={navSize == "small" ? "none" : "flex"}>
-                        <Heading as="h3" size="sm">Sylwia Weller</Heading>
-                        <Text color="gray">Admin</Text>
+                        <Heading as="h3" size="sm">{email}</Heading>
+                        <Text color="gray">WSB Amateur</Text>
                     </Flex>
                 </Flex>
             </Flex>
