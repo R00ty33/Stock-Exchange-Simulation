@@ -6,17 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="3826ab77-1b9a-40ae-8f9a-d081454db116" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rudii/Stock/Repository/StocksRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rudii/Stock/Repository/StocksRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rudii/Stock/Repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rudii/Stock/Repository/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rudii/Stock/controller/LeaderBoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rudii/Stock/controller/LeaderBoardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rudii/Stock/model/UsersPositions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rudii/Stock/model/UsersPositions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rudii/Stock/service/StockService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rudii/Stock/service/StockService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/rudii/Stock/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/rudii/Stock/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/rudii/Stock/Repository/StocksRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/rudii/Stock/Repository/StocksRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/rudii/Stock/controller/LeaderBoardController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/rudii/Stock/controller/LeaderBoardController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/rudii/Stock/model/UsersPositions.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/rudii/Stock/model/UsersPositions.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/rudii/Stock/service/StockService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/rudii/Stock/service/StockService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/rudii/Stock/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/rudii/Stock/service/UserService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,7 +120,7 @@
       <workItem from="1631829512192" duration="4420000" />
       <workItem from="1632201495556" duration="3587000" />
       <workItem from="1632354790510" duration="9730000" />
-      <workItem from="1632452260162" duration="18522000" />
+      <workItem from="1632452260162" duration="19507000" />
     </task>
     <servers />
   </component>
